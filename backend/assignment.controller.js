@@ -1,4 +1,4 @@
-import { Assignment } from "./assignment.model";
+import { Assignment } from "./assignment.model.js";
 
 const getAllAssignments = async (req, res) => {
 	try {
