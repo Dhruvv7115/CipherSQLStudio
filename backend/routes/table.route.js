@@ -3,6 +3,6 @@ import { getTableData } from "../controllers/table.controller.js";
 
 const router = Router();
 
-router.get("/", getTableData);
+router.post("/", getTableData);
 
 export default router;
