@@ -25,7 +25,21 @@ export const tableApi = {
 
 export const executeApi = {
 	executeSql: async (query) => {
-		const res = await axios.post("/api/execute", { query });
-		return res.data;
+		try {
+			const res = await axios.post("/api/execute", { query });
+			return res.data;
+		} catch (error) {
+			console.log(error.response.data);
+			throw error.response.data;
+		}
 	},
 };
+
+export async function getHint(question, userQuery, error) {
+	const response = await axios.post("/api/hint", {
+		question,
+		userQuery,
+		error,
+	});
+	return response.data;
+}
