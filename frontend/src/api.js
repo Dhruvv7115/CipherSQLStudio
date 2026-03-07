@@ -15,10 +15,9 @@ export const assignmentApi = {
 
 export const tableApi = {
 	getTableData: async (tables) => {
-		const res = await axios.get("/api/tables", {
-			params: {
-				tables,
-			},
+		console.log(tables);
+		const res = await axios.post("/api/tables", {
+			tables,
 		});
 		return res.data;
 	},
