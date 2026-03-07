@@ -12,3 +12,21 @@ export const assignmentApi = {
 		return res.data;
 	},
 };
+
+export const tableApi = {
+	getTableData: async (tables) => {
+		const res = await axios.get("/api/tables", {
+			params: {
+				tables,
+			},
+		});
+		return res.data;
+	},
+};
+
+export const executeApi = {
+	executeSql: async (query) => {
+		const res = await axios.post("/api/execute", { query });
+		return res.data;
+	},
+};
