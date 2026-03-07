@@ -1,11 +1,153 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
+@use "sass:color";
+
+.attempt-loading {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #888;
+}
 
 .attempt-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
+  gap: 1rem;
+  height: 100vh;
+  padding: 1rem;
+  background: $bg-body;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  &__execute-btn {
+    flex: 1;
+    padding: 0.7rem 1.25rem;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover { background: #333; }
+    &:disabled {
+      background: #888;
+      cursor: not-allowed;
+    }
+  }
+
+  &__hint-btn {
+    @include flex(2, row);
+    width: fit-content;
+    
+    padding: 0.7rem 1.25rem;
+    background: $bg-card;
+    color: #1a1a1a;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover { background: color.adjust($bg-card, $lightness: -5%); }
+  }
+
   @include mobile {
     grid-template-columns: 1fr;
+    height: auto;
+    overflow: auto;
+  }
+}
+
+.results-panel {
+  flex: 1;
+  background: $bg-card;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &__empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 0.875rem;
+  }
+
+  &__error {
+    padding: 1rem;
+    background: $bg-hard;
+    color: $color-hard;
+    border-radius: 8px;
+    margin: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &__table-wrapper {
+    overflow: auto;
+    flex: 1;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.825rem;
+
+    thead {
+      background: #1a1a1a;
+      color: #fff;
+      position: sticky;
+      top: 0;
+
+      th {
+        padding: 0.6rem 1rem;
+        text-align: left;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #eaeaea;
+        &:last-child { border-bottom: none; }
+        &:hover { background: $bg-body; }
+      }
+
+      td {
+        padding: 0.6rem 1rem;
+        color: #444;
+        white-space: nowrap;
+      }
+    }
   }
 }
