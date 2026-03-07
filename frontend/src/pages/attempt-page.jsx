@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import QuestionPanel from "../components/QuestionPanel";
 import { assignmentApi } from "../api";
 import { useParams } from "react-router-dom";
+import SQLEditor from "../components/SQLEditor";
+import "../styles/_attempt_page.scss";
 
 const AttemptPage = () => {
 	const { id } = useParams();
@@ -34,8 +36,9 @@ const AttemptPage = () => {
 		);
 	}
 	return (
-		<div>
-			<QuestionPanel assignment={assignment} /> 
+		<div className="attempt-layout">
+			<QuestionPanel assignment={assignment} />
+			<SQLEditor />
 		</div>
 	);
 };
