@@ -1,44 +1,89 @@
 @use './_variables' as *;
 @use './_mixins' as *;
 .assignment-card-container {
-  @include flex(1rem, column);
-  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
+
 .assignment-card {
+  background: $bg-card;
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid #eaeaea;
-  background: #fff;
   cursor: pointer;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
-  width: 100%;
-  background-color: $bg-card;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 
   &:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
   }
 
-  .title {
-    font-size: 1.1rem;
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1rem;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 0.5rem;
   }
 
-  p {
+  &__description {
     font-size: 0.875rem;
     color: #666;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    line-height: 1.6;
   }
 
-  .easy { @include difficulty-common($color-easy, $bg-easy); }
-  .medium { @include difficulty-common($color-medium, $bg-medium); }
-  .hard { @include difficulty-common($color-hard, $bg-hard); }
+  &__difficulty {
+    white-space: nowrap;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    &.easy { color: $color-easy; background: $bg-easy; }
+    &.medium { color: $color-medium; background: $bg-medium; }
+    &.hard { color: $color-hard; background: $bg-hard; }
+  }
+}
+
+.listing-page {
+  min-height: 100vh;
+  background: $bg-body;
+  padding: 2.5rem 2rem;
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+  }
+
+  &__subtitle {
+    font-size: 0.9rem;
+    color: #888;
+  }
 
   @include mobile {
-    padding: 1rem;
-    .title { font-size: 1rem; }
+    padding: 1.5rem 1rem;
   }
 }
