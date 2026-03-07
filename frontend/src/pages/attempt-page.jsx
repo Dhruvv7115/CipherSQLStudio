@@ -35,7 +35,7 @@ const AttemptPage = () => {
 	}
 	return (
 		<div>
-			{/* <QuestionPanel assignment={assignment} />  */}
+			<QuestionPanel assignment={assignment} /> 
 		</div>
 	);
 };
