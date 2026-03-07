@@ -46,7 +46,7 @@ const SchemaViewer = ({ assignment }) => {
 						</div>
 					))}
 			</div>
-			<h2 className="schema-viewer__title">Types</h2>
+			<h2 className="schema-viewer__title">Data Types</h2>
 			<div className="schema-viewer__types">
 				{tableData.length !== 0 &&
 					tableData?.map((table) => (

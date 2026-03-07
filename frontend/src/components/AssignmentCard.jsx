@@ -8,7 +8,7 @@ const AssignmentCard = ({ assignment }) => {
 	return (
 		<div
 			className="assignment-card"
-			onClick={() => navigate(`/attempt/${assignment._id}`)}
+			onClick={() => navigate(`/assignments/${assignment._id}`)}
 		>
 			<div className="assignment-card__top">
 				<h2 className="assignment-card__title">{assignment.title}</h2>
