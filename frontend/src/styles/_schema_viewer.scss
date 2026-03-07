@@ -1,0 +1,83 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.schema-viewer {
+  background: $bg-card;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  &__title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+  }
+
+  &__tables {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    &-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      background: $bg-body;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    &-wrapper {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid #d0d0d0;
+    }
+
+    &-grid {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.825rem;
+
+      thead {
+        background: #1a1a1a;
+        color: #fff;
+
+        th {
+          padding: 0.6rem 1rem;
+          text-align: left;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid #eaeaea;
+          &:last-child { border-bottom: none; }
+          &:hover { background: $bg-body; }
+        }
+
+        td {
+          padding: 0.6rem 1rem;
+          color: #444;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    padding: 1rem;
+  }
+}
