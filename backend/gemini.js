@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({
 export default async function getHint(question, userQuery, error) {
 	try {
     const response = await ai.models.generateContent({
-    		model: "gemini-3-flash-preview",
+    		model: "gemini-2.5-flash",
     		contents: `
           You are a SQL tutor helping a student learn.
           The assignment is: ${question}

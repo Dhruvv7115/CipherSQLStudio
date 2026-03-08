@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Filter High Earning Employees",
+    "difficulty": "Easy",
+    "description": "Practice basic SELECT and WHERE clauses",
+    "question": "The HR team needs a report of all high earning engineers. Write a query to fetch this data from the employees table.",
+    "requirements": [
+      "Filter by department = 'Engineering'",
+      "Only return employees with salary > 80000",
+      "Return name, department, and salary columns",
+      "Order by salary descending"
+    ],
+    "tableNames": ["employees"]
+  },
+  {
+    "title": "Customer Order Summary",
+    "difficulty": "Medium",
+    "description": "Practice JOINs between two tables",
+    "question": "The sales team wants to see all orders along with the customer name who placed them. Write a query that combines both tables.",
+    "requirements": [
+      "JOIN orders and customers tables",
+      "Return customer name, order date, and order amount",
+      "Only show orders with amount > 500",
+      "Order by order date descending"
+    ],
+    "tableNames": ["orders", "customers"]
+  },
+  {
+    "title": "Department Salary Analysis",
+    "difficulty": "Hard",
+    "description": "Practice GROUP BY and aggregate functions",
+    "question": "The finance team wants a breakdown of salary spending per department. Write a query to summarize this data.",
+    "requirements": [
+      "Group results by department",
+      "Calculate average and total salary per department",
+      "Only include departments with more than 2 employees",
+      "Order by total salary descending"
+    ],
+    "tableNames": ["employees"]
+  }
+]
